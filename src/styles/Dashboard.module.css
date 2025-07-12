@@ -1,0 +1,150 @@
+/* Expense Summary Styles */
+.expenseSummary {
+  margin: 1.5rem 0 2rem 0;
+  padding: 1.5rem 2rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.expenseSummaryEmpty {
+  margin: 1.5rem 0 2rem 0;
+  padding: 1.5rem 2rem;
+  background: #f7f7f7;
+  border-radius: 10px;
+  color: #888;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.summaryMain {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+.summaryLabel {
+  display: block;
+  color: var(--color-text-secondary);
+  font-size: 1.05rem;
+  margin-bottom: 0.2rem;
+}
+
+.summaryValue {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #060072 0%, #964ae7 100%);
+  box-shadow: 0 1px 4px rgba(216, 4, 4, 0.05);
+}
+
+.h1 {
+  font-size: 2.5rem;
+  color: #fff;
+  margin: 0;
+}
+
+.userInfo {
+  display: flex;
+  color: white;
+  align-items: center;
+  gap: 1rem;
+}
+
+.userInfo button {
+  background: #0070f3;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modalLayout {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.formContainer {
+  flex: 1;
+}
+
+.dashboardContent {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem; /* Optional: space between main and chart */
+}
+
+.mainContent {
+  flex: 2 1 0;
+  min-width: 0;
+}
+
+.chartContainer {
+  flex: 1 1 300px;
+  min-width: 300px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 2.5rem;
+}
+
+.stickyChart {
+  position: sticky;
+  top: 2.5rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.currencySelectWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.currencyLabel {
+  font-weight: 500;
+  color: white;
+}
+
+.currencySelect {
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--border-radius-sm);
+  border: 1px solid var(--color-border);
+  font-size: 1rem;
+}
+
+.controlsRow {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.filterCol {
+  flex: 2;
+}
+
+.importExportCol {
+  flex: 1;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}

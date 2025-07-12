@@ -1,0 +1,5 @@
+ALTER TABLE public.expenses
+ADD COLUMN currency TEXT NOT NULL DEFAULT 'USD';
+
+ALTER TABLE public.budgets
+ADD COLUMN currency TEXT NOT NULL DEFAULT 'USD';
