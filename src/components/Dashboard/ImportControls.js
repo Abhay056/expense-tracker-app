@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Papa from 'papaparse';
+import { color } from 'chart.js/helpers';
 
 export default function ImportControls({ onImport, disabled }) {
   const [error, setError] = useState(null);
@@ -12,7 +13,7 @@ export default function ImportControls({ onImport, disabled }) {
       header: true,
       skipEmptyLines: true,
       complete: (results) => {
-        const requiredFields = ['date', 'amount', 'category'];
+        const requiredFields = ['Date', 'Amount', 'Category'];
         const headers = results.meta.fields;
         const missingHeaders = requiredFields.filter((h) => !headers.includes(h));
 
@@ -36,7 +37,8 @@ export default function ImportControls({ onImport, disabled }) {
   };
 
   return (
-    <div>
+    <div style={{ padding: '20px', color: 'var(--text-second)'}}>
+      <h4>Import</h4>
       <input type="file" accept=".csv" onChange={handleFileChange} disabled={disabled} />
       {error && <p style={{ color: 'red' }}>{error}</p>}
     </div>

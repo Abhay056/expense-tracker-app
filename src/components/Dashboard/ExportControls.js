@@ -1,4 +1,5 @@
 import { exportToCsv } from '../../utils/csvHelpers';
+import styles from '../../styles/Dashboard.module.css';
 
 export default function ExportControls({ expenses, disabled }) {
   const handleExport = () => {

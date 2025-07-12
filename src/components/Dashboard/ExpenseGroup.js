@@ -37,14 +37,14 @@ export default function ExpenseGroup({ expenses, onEdit, onDelete }) {
   return (
     <div className={styles.expenseGroup}>
       <div className={styles.groupSelector}>
-        <span>Group by:</span>
+        <span><b>Group by  </b></span>
         <button type="button" className={`button-secondary ${groupBy === 'none' ? styles.active : ''}`} onClick={() => setGroupBy('none')}>None</button>
         <button type="button" className={`button-secondary ${groupBy === 'week' ? styles.active : ''}`} onClick={() => setGroupBy('week')}>Week</button>
         <button type="button" className={`button-secondary ${groupBy === 'month' ? styles.active : ''}`} onClick={() => setGroupBy('month')}>Month</button>
       </div>
 
       {Object.keys(groupedExpenses).map(group => (
-        <div key={group}>
+        <div className={styles.expenseGroup} key={group}>
           <h4 className={styles.groupHeader}>{group}</h4>
           {groupedExpenses[group].length > 0 ? (
             groupedExpenses[group].map(expense => (

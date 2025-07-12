@@ -52,7 +52,7 @@
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: color 0.2s;
   justify-self: start;
 }
 

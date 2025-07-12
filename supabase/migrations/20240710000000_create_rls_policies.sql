@@ -21,7 +21,6 @@ USING (auth.uid() = user_id);
 CREATE POLICY "Users can update their own expenses"
 ON public.expenses FOR UPDATE
 USING (auth.uid() = user_id)
-WITH CHECK (auth.uid() = user_id)
 WITH CHECK (auth.uid() = user_id);
 
 -- Create policy for DELETE

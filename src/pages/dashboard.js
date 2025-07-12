@@ -9,11 +9,9 @@ import ExportControls from '../components/Dashboard/ExportControls';
 import ImportControls from '../components/Dashboard/ImportControls';
 import ExpenseChart from '../components/Dashboard/ExpenseChart';
 import FilterControls from '../components/Dashboard/FilterControls';
-import RecurringExpenseManager from '../components/Dashboard/RecurringExpenseManager';
 import useExpenses from '../hooks/useExpenses';
 import { useAuth } from '../context/AuthContext';
 import Loader from '../components/Loader';
-
 import Modal from '../components/Modal';
 import styles from '../styles/Dashboard.module.css';
 
@@ -82,7 +80,6 @@ export default function DashboardPage() {
       <Header />
       <main className={styles.main}>
         <div className={styles.dashboardContent}>
-          {/* Main content left */}
           <div className={styles.mainContent}>
             <div className={styles.toolbar}>
               <button type="button" className="button-primary" onClick={() => openModal()}>
@@ -90,10 +87,10 @@ export default function DashboardPage() {
               </button>
               <div className={styles.currencySelectWrapper}>
                 <label htmlFor="currency-select" className={styles.currencyLabel}>Currency:</label>
-                <select id="currency-select" className={styles.currencySelect} onChange={(e) => setPreferredCurrency(e.target.value)}>
-                  <option value="INR">INR</option>
-                  <option value="USD">USD</option>
-                  <option value="EUR">EUR</option>
+                <select id="currency-select" className={styles.currencySelect} value="INR" onChange={(e) => setPreferredCurrency(e.target.value)}>
+                  <option value="INR">INR(₹)</option>
+                  <option value="USD">USD($)</option>
+                  <option value="EUR">EUR(€)</option>
                 </select>
               </div>
             </div>
@@ -101,7 +98,6 @@ export default function DashboardPage() {
             <ExpenseSummary expenses={convertedExpenses} />
             <div className={styles.widgets}>
               <BudgetManager expenses={convertedExpenses} />
-              <RecurringExpenseManager />
             </div>
 
             <div className={styles.controlsRow}>
@@ -118,7 +114,6 @@ export default function DashboardPage() {
 
             {error && <p className={styles.error}>{error}</p>}
           </div>
-          {/* Chart right */}
           <div className={styles.chartContainer}>
             <div className={styles.stickyChart}><ExpenseChart expenses={convertedExpenses} /></div>
           </div>
@@ -129,7 +124,7 @@ export default function DashboardPage() {
         <div className={styles.modalLayout}>
           <div className={styles.formContainer}>
             <ExpenseForm
-              initialValues={editing || { amount: '', category_id: '', date: '', notes: '', currency: 'INR' }}
+              initialValues={editing || { amount: '', category: '', date: '', notes: '', currency: 'INR' }}
               onSubmit={editing ? handleUpdate : handleAdd}
               loading={loading}
               error={error}

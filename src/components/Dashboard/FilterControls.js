@@ -7,7 +7,7 @@ export default function FilterControls({ onFilterChange }) {
   const [filters, setFilters] = useState({
     startDate: '',
     endDate: '',
-    category_id: '',
+    category: '',
   });
 
   const handleChange = (e) => {
@@ -17,6 +17,11 @@ export default function FilterControls({ onFilterChange }) {
 
   const handleApplyFilters = () => {
     onFilterChange(filters);
+  };
+
+  const handleRemoveFilters = () => {
+    setFilters({ startDate: '', endDate: '', category: '' });
+    onFilterChange({ startDate: '', endDate: '', category: '' });
   };
 
   return (
@@ -35,18 +40,23 @@ export default function FilterControls({ onFilterChange }) {
         onChange={handleChange}
       />
       <select
-        name="category_id"
-        value={filters.category_id}
+        name="category"
+        value={filters.category}
         onChange={handleChange}
       >
-        <option value="">All Categories</option>
+        <option value="" disabled>Select category</option>
+        <option value="food">Food</option>
+        <option value="transport">Transport</option>
+        <option value="shopping">Shopping</option>
+        <option value="utilities">Utilities</option>
+        <option value="entertainment">Entertainment</option>
+        <option value="other">Other</option>
         {categories.map((cat) => (
-          <option key={cat.id} value={cat.id}>
-            {cat.name}
-          </option>
+          <option key={cat.id} value={cat.id}>{cat.name}</option>
         ))}
       </select>
-      <button type="button" className="button-secondary" onClick={handleApplyFilters}>Apply Filters</button>
+      <button type="button" className={`button-secondary ${styles.filterBtn}`} onClick={handleApplyFilters}>Apply Filters</button>
+      <button type="button" className={`button-secondary ${styles.removeFilterBtn}`} onClick={handleRemoveFilters}>Remove Filters</button>
     </div>
   );
 }

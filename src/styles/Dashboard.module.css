@@ -1,4 +1,59 @@
-/* Expense Summary Styles */
+.budgetForm {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.budgetInput {
+  width: 120px;
+}
+.budgetSelect {
+  width: 90px;
+}
+.budgetBtn {
+  min-width: 120px;
+}
+
+.budgetManager {
+  flex: 2;
+  padding: 2px;
+  color: #ffffff;
+  font-size: large
+}
+
+.budgetSummary {
+  color: var(--text-second);
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.budgetMsg {
+  border: 2px solid red;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #ffebee;
+  color: #c62828;
+  border-radius: 5px;
+}
+
+.importExportCol .button-secondary,
+.importExportCol .button-primary {
+  min-width: 10px;
+  margin-bottom: 0.5rem;
+}
+
+.filterBtn {
+  min-width: 140px;
+  margin-top: 0.5rem;
+}
+
+.removeFilterBtn {
+  min-width: 140px;
+  margin-top: 0.5rem;
+  background: #e53e3e !important;
+  color: #fff !important;
+}
+
 .expenseSummary {
   margin: 1.5rem 0 2rem 0;
   padding: 1.5rem 2rem;
@@ -21,6 +76,11 @@
   font-size: 1.1rem;
 }
 
+.expenseGroup {
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+
 .summaryMain {
   display: flex;
   gap: 3rem;
@@ -39,6 +99,7 @@
   font-weight: 600;
   color: var(--color-primary);
 }
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -82,7 +143,7 @@
 .dashboardContent {
   display: flex;
   flex-direction: row;
-  gap: 2rem; /* Optional: space between main and chart */
+  gap: 2rem; 
 }
 
 .mainContent {
@@ -97,6 +158,8 @@
   align-items: flex-start;
   justify-content: center;
   padding-top: 2.5rem;
+  background: #fafbfc;
+  border-left: 1px solid #eee;
 }
 
 .stickyChart {
@@ -139,7 +202,26 @@
 }
 
 .filterCol {
-  flex: 2;
+  display: flex;
+  padding: 20px;
+  gap: 1rem;
+  color: #ffffff;
+  font-size: large
+}
+
+.filterCol select {
+  width: 100%;
+  border-radius: var(--border-radius-sm);
+  border: 1px solid var(--color-border);
+  font-size: 1rem;
+}
+
+.filterCol button {
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--border-radius-sm);
+  border: none;
+  background-color: var(--color-secondary);
+  cursor: pointer;
 }
 
 .importExportCol {
@@ -147,4 +229,12 @@
   display: flex;
   gap: 1rem;
   align-items: center;
+}
+
+.groupSelector {
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }

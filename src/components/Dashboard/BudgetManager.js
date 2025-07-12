@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import supabase from '../../lib/supabaseClient';
+import styles from '../../styles/Dashboard.module.css';
 
 export default function BudgetManager({ expenses }) {
   const { user } = useAuth();
@@ -41,39 +42,29 @@ export default function BudgetManager({ expenses }) {
   }, [user]);
 
   const totalExpenses = expenses.reduce((acc, exp) => acc + exp.amount, 0);
-  const budgetExceeded = budget.amount && totalExpenses > budget.amount;
 
   return (
-    <div>
+    <div style={{ padding: '20px', color: '#ffffff' }} className={styles.budgetManager}>
       <h4>Budget</h4>
-      <form onSubmit={handleSetBudget}>
-        <input type="number" name="budget" defaultValue={budget.amount || ''} min="1" step="any" />
-        <select name="currency" defaultValue={budget.currency}>
-          <option value="USD">USD</option>
-          <option value="EUR">EUR</option>
-          <option value="GBP">GBP</option>
-          <option value="JPY">JPY</option>
-          <option value="INR">INR</option>
+      <form onSubmit={handleSetBudget} className={styles.budgetForm}>
+        <input type="number" name="budget" defaultValue={budget.amount || ''} min="1" step="any" className={styles.budgetInput} />
+        <select name="currency" defaultValue="INR" className={styles.budgetSelect}>
+          <option value="INR">INR(₹)</option>
+          <option value="USD">USD($)</option>
+          <option value="EUR">EUR(€)</option>
         </select>
-        <button type="submit" className="button-primary" disabled={loading}>Set Budget</button>
+        <button type="submit" className={`button-primary ${styles.budgetBtn}`}>Set Budget</button>
       </form>
       {budget.amount && (
-        <p>
-          Current Budget: {budget.currency} {budget.amount.toFixed(2)} | Spent: {totalExpenses.toFixed(2)}
+        <p className={styles.budgetSummary}>
+          Current Budget: {budget.currency} {budget.amount ? Number(budget.amount).toFixed(2) : '0.00'} , Spent: {totalExpenses.toFixed(2)}
         </p>
       )}
-      {budgetExceeded && (
-      <div style={{
-                  border: '2px solid red',
-                  padding: '10px',
-                  margin: '10px 0',
-                  backgroundColor: '#ffebee',
-                  color: '#c62828',
-                  borderRadius: '5px',
-                }}>
-      <strong>Warning:</strong> You have exceeded your monthly budget!
-      </div>
-              )}
+      {Number(budget.amount) > 0 && totalExpenses > Number(budget.amount) && (
+        <div style={{ color: 'red', fontWeight: 600, marginTop: '1rem' }}>
+          <strong>Warning!</strong> You have exceeded your monthly budget!
+        </div>
+      )}
       {error && <p style={{ color: 'red' }}>{error}</p>}
     </div>
   );

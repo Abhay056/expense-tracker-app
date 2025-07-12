@@ -37,6 +37,12 @@ export default function LoginForm() {
             <br/>
             "to do your expenses"
           </h1>
+          <ul>
+            <li>Track your expenses easily</li>
+            <li>Set budgets and monitor spending</li>
+            <li>Visualize your financial health</li>
+            <li>Secure and private with Supabase</li>
+          </ul>
         </div>
         <div className={styles.right}>
           <form className={styles.form} onSubmit={handleSubmit}>

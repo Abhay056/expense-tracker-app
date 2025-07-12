@@ -1,5 +1,5 @@
 export default async function handler(req, res) {
-  const { base = 'USD' } = req.query;
+  const { base = 'INR' } = req.query;
   const apiKey = process.env.EXCHANGE_RATE_API_KEY;
 
   if (!apiKey || apiKey.includes('your_exchange_rate_api_key')) {

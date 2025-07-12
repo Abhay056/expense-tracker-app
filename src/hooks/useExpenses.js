@@ -11,9 +11,9 @@ export default function useExpenses() {
   const [filters, setFilters] = useState({
     startDate: '',
     endDate: '',
-    category_id: '',
+    category: '',
   });
-  const [preferredCurrency, setPreferredCurrency] = useState('USD');
+  const [preferredCurrency, setPreferredCurrency] = useState('INR');
 
   // Fetch expenses for the current user
   const fetchExpenses = useCallback(async () => {
@@ -31,8 +31,8 @@ export default function useExpenses() {
     if (filters.endDate) {
       query = query.lte('date', filters.endDate);
     }
-    if (filters.category_id) {
-      query = query.eq('category_id', filters.category_id);
+    if (filters.category) {
+      query = query.eq('category', filters.category);
     }
 
     const { data, error } = await query.order('date', { ascending: false });
@@ -45,7 +45,7 @@ export default function useExpenses() {
     setExpenses(data || []);
 
     const convertCurrencies = async () => {
-      const response = await fetch(`/api/exchange-rate?base=USD`);
+      const response = await fetch(`/api/exchange-rate?base=INR`);
       const rates = await response.json();
 
       const converted = data.map(expense => {
@@ -107,12 +107,18 @@ export default function useExpenses() {
       setExpenses((expenses) =>
         expenses.map((e) => (e.id === id ? { ...e, ...updates } : e))
       );
+      setConvertedExpenses((converted) =>
+        converted.map((e) => (e.id === id ? { ...e, ...updates } : e))
+      );
     }
     setLoading(false);
   };
 
   // Delete an expense
   const deleteExpense = async (id) => {
+    // Optimistic update: remove from UI immediately
+    setExpenses((expenses) => expenses.filter((e) => e.id !== id));
+    setConvertedExpenses((converted) => converted.filter((e) => e.id !== id));
     setLoading(true);
     setError(null);
     const { error } = await supabase
@@ -120,9 +126,6 @@ export default function useExpenses() {
       .delete()
       .eq('id', id);
     if (error) setError(error.message);
-    if (!error) {
-      setExpenses((expenses) => expenses.filter((e) => e.id !== id));
-    }
     setLoading(false);
   };
 

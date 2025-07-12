@@ -1,20 +1,35 @@
-import { Pie } from 'react-chartjs-2';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import { Pie, Bar } from 'react-chartjs-2';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js';
 import useCategories from '../../hooks/useCategories';
 
-ChartJS.register(ArcElement, Tooltip, Legend);
-
+ChartJS.register(ArcElement, Tooltip, Legend, BarElement, CategoryScale, LinearScale);
 export default function ExpenseChart({ expenses }) {
+  if (!expenses || expenses.length === 0) { 
+    return <div style={{textAlign:'center', color:'#aaa', padding:'2rem'}}>No expense data to display.</div>;
+  }
   const { categories } = useCategories();
+  const defaultCategories = [
+    'Food',
+    'Transport',
+    'Shopping',
+    'Utilities',
+    'Entertainment',
+    'Other',
+  ];
+  // Merge user categories and default categories, remove duplicates
+  const allCategories = Array.from(new Set([
+    ...defaultCategories,
+    ...categories.map(c => c.name),
+  ]));
 
   const data = {
-    labels: categories.map(c => c.name),
+    labels: allCategories,
     datasets: [
       {
         label: 'Expenses by Category',
-        data: categories.map(c =>
+        data: allCategories.map(cat =>
           expenses
-            .filter(e => e.category_id === c.id)
+            .filter(e => (e.category || '').toLowerCase() === cat.toLowerCase())
             .reduce((acc, e) => acc + e.amount, 0)
         ),
         backgroundColor: [
@@ -38,5 +53,30 @@ export default function ExpenseChart({ expenses }) {
     ],
   };
 
-  return <Pie data={data} />;
+  // If all data is zero, show a message instead of an empty chart
+  const allZero = data.datasets[0].data.every(v => v === 0);
+  if (allZero) {
+    return <div style={{textAlign:'center', color:'#aaa', padding:'2rem'}}>No expense data to display.</div>;
+  }
+
+  // Bar chart config
+  const barOptions = {
+    responsive: true,
+    plugins: {
+      legend: { display: false },
+      title: { display: true, text: 'Expenses by Category (Bar)' },
+    },
+    scales: {
+      y: { beginAtZero: true },
+    },
+  };
+
+  return (
+    <>
+      <Pie data={data} />
+      <div style={{marginTop: '2rem'}}>
+        <Bar data={data} options={barOptions} />
+      </div>
+    </>
+  );
 }
