@@ -1,5 +1,6 @@
 import Header from './Header';  
 import styles from '../styles/Auth.module.css';
+import Footer from './footer';
 
 export default function Home() {
   return (
@@ -30,6 +31,7 @@ export default function Home() {
           />
         </div>
       </div>
+      <Footer />
     </>
   );  
 }
