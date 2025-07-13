@@ -1,15 +1,57 @@
+@keyframes blinkLogo {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+.splashAnim {
+  display: flex;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  animation: blinkLogo 2s linear infinite;
+  margin-top: 200px;
+  margin-left: 650px;
+}
+
+.wrap {
+  display: flex; 
+  gap: 0.5rem;
+  flex-direction: row;
+}
+
+.logo{
+  width:50px;
+  height:50px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 0;
+}
+
+.text {
+  color: #fff;
+  font-weight: bold;
+  padding: 2px;
+  margin-top: 4px;
+  font-family: 'Arial', sans-serif;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
 .budgetForm {
   display: flex;
   gap: 1rem;
   align-items: center;
   margin-bottom: 1rem;
 }
+
 .budgetInput {
   width: 120px;
 }
+
 .budgetSelect {
   width: 90px;
 }
+
 .budgetBtn {
   min-width: 120px;
 }
@@ -105,8 +147,15 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background: linear-gradient(135deg, #060072 0%, #964ae7 100%);
+  background: linear-gradient(135deg, #0e04db 0%, #964ae7 100%);
   box-shadow: 0 1px 4px rgba(216, 4, 4, 0.05);
+}
+
+.signin {
+  flex: 1;
+  display: 'flex';
+  justify-content: 'flex-end';
+  align-items: 'center';
 }
 
 .h1 {

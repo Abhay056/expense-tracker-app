@@ -5,9 +5,9 @@ export default function LoginPage() {
   return (
     <>
       <LoginForm />
-      <p style={{ textAlign: 'center', marginTop: '1rem', color: '#fff' }}>
+      <p style={{ textAlign: 'center', marginTop: '1rem', color: 'black' }}>
         Don&apos;t have an account?{' '}
-        <Link href="/signup">Sign up</Link>
+        <Link href="/signup"><span style={{ color: '#0070f3', textDecoration: 'underline', cursor: 'pointer' }}>Sign up</span></Link>
       </p>
     </>
   );

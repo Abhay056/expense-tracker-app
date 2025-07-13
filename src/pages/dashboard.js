@@ -22,7 +22,7 @@ export default function DashboardPage() {
     convertedExpenses,
     loading,
     error,
-    addExpense,
+    addExpense, 
     updateExpense,
     deleteExpense,
     setFilters,

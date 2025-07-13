@@ -17,7 +17,7 @@
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-xl);
   width: 90%;
-  max-width: 800px; /* Increased width for chart */
+  max-width: 800px; 
   animation: fadeIn 0.3s ease-out;
 }
 
@@ -52,7 +52,6 @@
 
 .content {
   padding: 1.5rem;
-  /* Removed grid layout to fix button click issue */
 }
 
 @keyframes fadeIn {

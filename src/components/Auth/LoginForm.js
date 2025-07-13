@@ -31,11 +31,11 @@ export default function LoginForm() {
       <div className={styles.container}>
         <div className={styles.left}>
           <h1>
-            "The -
-            <em>fastest</em>
-            <img src="https://d2k5nsl2zxldvw.cloudfront.net/images/illustrations/car_emoji.svg" width="96"/>
+            Track 
+            <em> Smarter</em> 🧠
             <br/>
-            "to do your expenses"
+            Spend
+            <em> Smarter</em> 💰  
           </h1>
           <ul>
             <li>Track your expenses easily</li>
@@ -65,6 +65,8 @@ export default function LoginForm() {
               Login
             </button>
             {error && <p className={styles.error}>{error}</p>}
+            <span style={{ color: '#333' }}>Don't have an account? 
+            <a href="/signup" style={{ color: '#0909ddff', textDecoration: 'underline', fontWeight: 600 }}> Sign up</a></span>
           </form>
         </div>
       </div>

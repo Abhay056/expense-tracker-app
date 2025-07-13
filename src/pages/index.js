@@ -1,18 +1,21 @@
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
-import useAuth from '../hooks/useAuth';
+import { useEffect, useState } from 'react';
+import Home from '../components/home';
+import styles from '../styles/Dashboard.module.css';
 
-export default function Home() {
-  const { user } = useAuth();
-  const router = useRouter();
+export default function IndexPage() {
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
-    if (user) {
-      router.replace('/dashboard');
-    } else {
-      router.replace('/login');
-    }
-  }, [user, router]);
+    const timer = setTimeout(() => setShow(true), 1000);
+    return () => clearTimeout(timer);
+  }, []);
 
-  return null;
+  return (
+    <>
+      {!show && (
+        <img className={styles.splashAnim} src="/logo.png" style={{alignItems: 'center'}}/>
+      )}
+      {show && <Home />}
+    </>
+  );
 }
