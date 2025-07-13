@@ -15,11 +15,11 @@ export default function Header() {
         </Link>
       </div>
       <nav style={{ flex: 2, display: 'flex', justifyContent: 'center' }}>
-        <ul style={{ display: 'flex', gap: '2rem', listStyle: 'none', margin: 0, padding: 0, alignItems: 'center' }}>
-          <li><Link href="/" style={{color: '#fff'}}>Home</Link></li>
-          <li><Link href="/about" style={{color: '#fff'}}>About</Link></li>
-          <li><Link href="/contact" style={{color: '#fff'}}> Contact</Link></li>
-          {user && <li><Link href="/dashboard" style={{color: '#fff'}}>Dashboard</Link></li>}
+        <ul style={{ display: 'flex', gap: '4rem', listStyle: 'none', margin: 0, padding: 0, alignItems: 'center' }}>
+          <li><Link href="/" className={styles.links}>Home</Link></li>
+          <li><Link href="/about" className={styles.links}>About</Link></li>
+          <li><Link href="/contact" className={styles.links}> Contact</Link></li>
+          {user && <li><Link href="/dashboard" className={styles.links}>Dashboard</Link></li>}
         </ul>
       </nav>
       <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>

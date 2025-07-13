@@ -45,6 +45,8 @@ styles/
 types/
 utils/
 ```
+## Check Demo
+To view the demo: **[click here](https://expensetrak.vercel.app/)**
 
 
 
