@@ -15,7 +15,6 @@ export default function useExpenses() {
   });
   const [preferredCurrency, setPreferredCurrency] = useState('INR');
 
-  // Fetch expenses for the current user
   const fetchExpenses = useCallback(async () => {
     if (!user) return;
     setLoading(true);
@@ -66,7 +65,6 @@ export default function useExpenses() {
     setLoading(false);
   }, [user, filters, preferredCurrency]);
 
-  // Add a new expense
   const addExpense = async (expense) => {
     if (!user) {
       setError('You must be logged in to add an expense.');
@@ -74,7 +72,6 @@ export default function useExpenses() {
     }
     setLoading(true);
     setError(null);
-    // Ensure amount is a number and all fields are included
     const expenseToInsert = {
       ...expense,
       amount: Number(expense.amount),
@@ -87,14 +84,13 @@ export default function useExpenses() {
 
     if (error) {
       setError(error.message);
-    } else {
-      // Always refetch to ensure UI and totals are correct
+    } 
+    else {
       await fetchExpenses();
     }
     setLoading(false);
   };
 
-  // Update an expense
   const updateExpense = async (id, updates) => {
     setLoading(true);
     setError(null);
@@ -114,9 +110,7 @@ export default function useExpenses() {
     setLoading(false);
   };
 
-  // Delete an expense
   const deleteExpense = async (id) => {
-    // Optimistic update: remove from UI immediately
     setExpenses((expenses) => expenses.filter((e) => e.id !== id));
     setConvertedExpenses((converted) => converted.filter((e) => e.id !== id));
     setLoading(true);
