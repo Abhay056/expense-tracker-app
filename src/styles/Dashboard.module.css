@@ -5,12 +5,12 @@
 
 .splashAnim {
   display: flex;
-  height: 200px;
-  width: 200px;
+  height: 300px;
+  width: 300px;
   border-radius: 50%;
   animation: blinkLogo 2s linear infinite;
   margin-top: 200px;
-  margin-left: 650px;
+  margin-left: 600px;
 }
 
 .wrap {

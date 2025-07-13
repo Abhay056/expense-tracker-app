@@ -6,7 +6,7 @@ export default function IndexPage() {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setShow(true), 1000);
+    const timer = setTimeout(() => setShow(true), 4000);
     return () => clearTimeout(timer);
   }, []);
 
