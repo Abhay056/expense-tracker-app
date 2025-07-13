@@ -39,11 +39,11 @@ export default function SignupForm() {
       <div className={styles.container}>
         <div className={styles.left}>
           <h1>
-            "The -
-            <em>fastest</em>
-            <img src="https://d2k5nsl2zxldvw.cloudfront.net/images/illustrations/car_emoji.svg" width="96"/>
+            Track 
+            <em> Smarter</em> 🧠
             <br/>
-            "to do your expenses"
+            Spend
+            <em> Smarter</em> 💰  
           </h1>
           <ul>
             <li>Track your expenses easily</li>

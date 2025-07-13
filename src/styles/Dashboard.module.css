@@ -314,20 +314,23 @@
   margin-bottom: 1rem;
 }
 
+
 .links {
   color: #fff;
   text-decoration: none;
   font-weight: bold;
-  transition: color 0.3s ease;
+  transition: color 0.3s, background 0.2s, box-shadow 0.2s;
+  padding: 1em 0.75em;
+  border-radius: 8px;
+  box-sizing: border-box;
+  display: inline-block;
 }
 
 .links:hover {
   color: #13e2af;
-  text-decoration: none;
-  font-weight: bold;
   background: rgb(56, 6, 204);
-  border-radius: 8px;
   box-shadow: 0 2px 8px rgb(19, 226, 105);
-  padding: 1em 0.75em;
+  /* padding, border-radius, etc. remain unchanged to prevent shifting */
+  text-decoration: none;
   translate: 0 2px;
 }
