@@ -4,7 +4,7 @@ import ExpenseItem from './ExpenseItem';
 import styles from '../../styles/Dashboard.module.css';
 
 export default function ExpenseGroup({ expenses, onEdit, onDelete }) {
-  const [groupBy, setGroupBy] = useState('none'); // 'none', 'week', 'month'
+  const [groupBy, setGroupBy] = useState('none'); 
 
   const groupExpenses = () => {
     if (groupBy === 'none') {

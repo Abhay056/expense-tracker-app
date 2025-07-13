@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import Papa from 'papaparse';
-import { color } from 'chart.js/helpers';
 
 export default function ImportControls({ onImport, disabled }) {
   const [error, setError] = useState(null);

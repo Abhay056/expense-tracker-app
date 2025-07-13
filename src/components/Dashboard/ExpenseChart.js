@@ -16,7 +16,7 @@ export default function ExpenseChart({ expenses }) {
     'Entertainment',
     'Other',
   ];
-  // Merge user categories and default categories, remove duplicates
+
   const allCategories = Array.from(new Set([
     ...defaultCategories,
     ...categories.map(c => c.name),
@@ -53,13 +53,11 @@ export default function ExpenseChart({ expenses }) {
     ],
   };
 
-  // If all data is zero, show a message instead of an empty chart
   const allZero = data.datasets[0].data.every(v => v === 0);
   if (allZero) {
     return <div style={{textAlign:'center', color:'#aaa', padding:'2rem'}}>No expense data to display.</div>;
   }
 
-  // Bar chart config
   const barOptions = {
     responsive: true,
     plugins: {

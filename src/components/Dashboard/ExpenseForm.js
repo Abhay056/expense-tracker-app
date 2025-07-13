@@ -24,7 +24,6 @@ export default function ExpenseForm({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Ensure amount is a number and required fields are present
     const payload = {
       ...form,
       amount: Number(form.amount),
