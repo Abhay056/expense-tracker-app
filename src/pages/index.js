@@ -13,7 +13,17 @@ export default function IndexPage() {
   return (
     <>
       {!show && (
-        <img className={styles.splashAnim} src="/logo.png" style={{alignItems: 'center'}}/>
+        <div
+          style={{
+            minHeight: '100vh',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            background: 'linear-gradient(135deg, #036ff4 0%, #0b7e2e 100%)'
+          }}
+        >
+          <img className={styles.splashAnim} src="/logo.png" alt="Logo" />
+        </div>
       )}
       {show && <Home />}
     </>

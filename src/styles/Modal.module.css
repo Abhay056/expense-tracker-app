@@ -54,6 +54,33 @@
   padding: 1.5rem;
 }
 
+.modalOverlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContent {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem 2.5rem;
+  max-width: 90vw;
+  width: 400px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+}
+
+@media (max-width: 600px) {
+  .modalContent {
+    padding: 1rem 0.5rem;
+    width: 98vw;
+    min-width: 0;
+  }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
