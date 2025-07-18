@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import ExpenseSummary from '../components/Dashboard/ExpenseSummary';
 import ExpenseGroup from '../components/Dashboard/ExpenseGroup';
 import ExpenseForm from '../components/Dashboard/ExpenseForm';
@@ -10,7 +11,7 @@ import ImportControls from '../components/Dashboard/ImportControls';
 import ExpenseChart from '../components/Dashboard/ExpenseChart';
 import FilterControls from '../components/Dashboard/FilterControls';
 import useExpenses from '../hooks/useExpenses';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../context/AuthContyext';
 import Loader from '../components/Loader';
 import Modal from '../components/Modal';
 import styles from '../styles/Dashboard.module.css';
@@ -133,6 +134,7 @@ export default function DashboardPage() {
           </div>
         </div>
       </Modal>
+      <Footer />
     </div>
   );
 }
