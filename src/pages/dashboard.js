@@ -11,7 +11,7 @@ import ImportControls from '../components/Dashboard/ImportControls';
 import ExpenseChart from '../components/Dashboard/ExpenseChart';
 import FilterControls from '../components/Dashboard/FilterControls';
 import useExpenses from '../hooks/useExpenses';
-import { useAuth } from '../context/AuthContyext';
+import { useAuth } from '../context/AuthContext';
 import Loader from '../components/Loader';
 import Modal from '../components/Modal';
 import styles from '../styles/Dashboard.module.css';
