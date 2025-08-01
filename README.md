@@ -1,5 +1,4 @@
 # 💰 Expense Tracker App (Next.js + Supabase)
-
 A full-featured expense tracking app to manage your spending and visualize trends over time. Built with **Next.js** and **Supabase**.
 
 ---
