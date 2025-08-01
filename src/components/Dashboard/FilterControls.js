@@ -41,6 +41,7 @@ export default function FilterControls({ onFilterChange }) {
       />
       <select
         name="category"
+        className={styles.categorySelect}
         value={filters.category}
         onChange={handleChange}
       >
@@ -55,8 +56,8 @@ export default function FilterControls({ onFilterChange }) {
           <option key={cat.id} value={cat.id}>{cat.name}</option>
         ))}
       </select>
-      <button type="button" className={`button-secondary ${styles.filterBtn}`} onClick={handleApplyFilters}>Apply Filters</button>
-      <button type="button" className={`button-secondary ${styles.removeFilterBtn}`} onClick={handleRemoveFilters}>Remove Filters</button>
+      <button type="button" className={styles.btn} onClick={handleApplyFilters}>Apply Filters</button>
+      <button type="button" className={styles.btn} onClick={handleRemoveFilters}>Remove Filters</button>
     </div>
   );
 }

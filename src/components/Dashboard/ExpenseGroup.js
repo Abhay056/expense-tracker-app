@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { format, startOfWeek, startOfMonth, isSameWeek, isSameMonth } from 'date-fns';
+import { format, startOfWeek, startOfMonth } from 'date-fns';
 import ExpenseItem from './ExpenseItem';
 import styles from '../../styles/Dashboard.module.css';
 
@@ -8,7 +8,7 @@ export default function ExpenseGroup({ expenses, onEdit, onDelete }) {
 
   const groupExpenses = () => {
     if (groupBy === 'none') {
-      return { 'All Expenses': expenses };
+      return { 'Recent Transactions': expenses };
     }
 
     const groups = {};
@@ -37,11 +37,13 @@ export default function ExpenseGroup({ expenses, onEdit, onDelete }) {
   return (
     <div className={styles.expenseGroup}>
       <div className={styles.groupSelector}>
-        <span><b>Group by  </b></span>
-        <button type="button" className={`button-secondary ${groupBy === 'none' ? styles.active : ''}`} onClick={() => setGroupBy('none')}>None</button>
-        <button type="button" className={`button-secondary ${groupBy === 'week' ? styles.active : ''}`} onClick={() => setGroupBy('week')}>Week</button>
-        <button type="button" className={`button-secondary ${groupBy === 'month' ? styles.active : ''}`} onClick={() => setGroupBy('month')}>Month</button>
-      </div>
+        <span><b>Sort by  </b></span>
+        <select className={styles.categorySelect} value={groupBy} onChange={(e) => setGroupBy(e.target.value)}>
+          <option value="none">None</option>
+          <option value="week">Week</option>
+          <option value="month">Month</option>
+        </select>
+     </div>
 
       {Object.keys(groupedExpenses).map(group => (
         <div className={styles.expenseGroup} key={group}>

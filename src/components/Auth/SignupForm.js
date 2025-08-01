@@ -35,8 +35,7 @@ export default function SignupForm() {
 
   return (
     <>
-      <Header />
-      <div className={styles.container}>
+      <div className={styles.loginsignup}>
         <div className={styles.left}>
           <h1>
             Track 

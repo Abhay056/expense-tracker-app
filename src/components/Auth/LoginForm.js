@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import Header from '../Header';
 import { useAuth } from '../../context/AuthContext';
 import styles from '../../styles/Auth.module.css';
 
@@ -27,8 +26,7 @@ export default function LoginForm() {
 
   return (
     <>
-      <Header />
-      <div className={styles.container}>
+      <div className={styles.loginsignup}>
         <div className={styles.left}>
           <h1>
             Track 

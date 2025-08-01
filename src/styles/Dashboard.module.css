@@ -41,6 +41,34 @@
   margin: 0;
 }
 
+.btn {
+  background: linear-gradient(125deg, #3b5ae9, #6546e9, #7a33e8);
+  color: #fff;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  border-radius: 12px;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(123, 47, 247, 0.4);
+  transition: 0.3s ease all;
+}
+
+.btn:hover {
+  background: #8c2fff;
+  transform: scale(1.03);
+}
+
+.categorySelect {
+  padding: 0.3rem;
+  border-radius: 10px;
+  transition: 0.2s ease;
+}
+
+.import { 
+  padding: 20px;
+  color: var(--text-second);
+}
+
 .text {
   color: #fff;
   font-weight: bold;
@@ -76,10 +104,6 @@
   width: 90px;
 }
 
-.budgetBtn {
-  min-width: 120px;
-}
-
 .budgetManager {
   flex: 2;
   padding: 2px;
@@ -100,24 +124,6 @@
   background-color: #ffebee;
   color: #c62828;
   border-radius: 5px;
-}
-
-.importExportCol .button-secondary,
-.importExportCol .button-primary {
-  min-width: 10px;
-  margin-bottom: 0.5rem;
-}
-
-.filterBtn {
-  min-width: 140px;
-  margin-top: 0.5rem;
-}
-
-.removeFilterBtn {
-  min-width: 140px;
-  margin-top: 0.5rem;
-  background: #e53e3e !important;
-  color: #fff !important;
 }
 
 .expenseSummary {
@@ -220,8 +226,8 @@
 }
 
 .mainContent {
-  flex: 2 1 0;
-  min-width: 0;
+  flex: 2;
+  min-width: 0;;
 }
 
 .chartContainer {
@@ -296,21 +302,6 @@
   gap: 1rem;
   color: #ffffff;
   font-size: large
-}
-
-.filterCol select {
-  width: 100%;
-  border-radius: var(--border-radius-sm);
-  border: 1px solid var(--color-border);
-  font-size: 1rem;
-}
-
-.filterCol button {
-  padding: 0.4rem 0.8rem;
-  border-radius: var(--border-radius-sm);
-  border: none;
-  background-color: var(--color-secondary);
-  cursor: pointer;
 }
 
 .importExportCol {

@@ -53,7 +53,7 @@ export default function BudgetManager({ expenses }) {
           <option value="USD">USD($)</option>
           <option value="EUR">EUR(€)</option>
         </select>
-        <button type="submit" className={`button-primary ${styles.budgetBtn}`}>Set Budget</button>
+        <button type="submit" className={styles.btn}>Set Budget</button>
       </form>
       {budget.amount && (
         <p className={styles.budgetSummary}>

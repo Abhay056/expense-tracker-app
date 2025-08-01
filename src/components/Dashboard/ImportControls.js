@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Papa from 'papaparse';
+import styles from '../../styles/Dashboard.module.css';
 
 export default function ImportControls({ onImport, disabled }) {
   const [error, setError] = useState(null);
@@ -36,7 +37,7 @@ export default function ImportControls({ onImport, disabled }) {
   };
 
   return (
-    <div style={{ padding: '20px', color: 'var(--text-second)'}}>
+    <div className={styles.import}>
       <h4>Import</h4>
       <input type="file" accept=".csv" onChange={handleFileChange} disabled={disabled} />
       {error && <p style={{ color: 'red' }}>{error}</p>}

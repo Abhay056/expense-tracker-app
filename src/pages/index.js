@@ -15,11 +15,16 @@ export default function IndexPage() {
       {!show && (
         <div
           style={{
-            minHeight: '100vh',
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '100vh',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            background: 'linear-gradient(135deg, #036ff4 0%, #0b7e2e 100%)'
+            background: 'linear-gradient(135deg, #036ff4 0%, #0b7e2e 100%)',
+            zIndex: 9999,
           }}
         >
           <img className={styles.splashAnim} src="/logo.png" alt="Logo" />

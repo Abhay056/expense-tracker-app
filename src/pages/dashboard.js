@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import ExpenseSummary from '../components/Dashboard/ExpenseSummary';
 import ExpenseGroup from '../components/Dashboard/ExpenseGroup';
 import ExpenseForm from '../components/Dashboard/ExpenseForm';
@@ -78,13 +76,13 @@ export default function DashboardPage() {
 
   return (
     <div className={styles.dashboard}>
-      <Header />
       <main className={styles.main}>
         <div className={styles.dashboardContent}>
-          <div className={styles.mainContent}>
+          <div className={styles.mainContent}>              
+            <h2 style={{color: '#fff', fontSize: '3rem'}}>Dashboard</h2>
             <div className={styles.toolbar}>
-              <button type="button" className="button-primary" onClick={() => openModal()}>
-                Add Expense
+              <button type="button" className={styles.btn} onClick={() => openModal()}>
+                + Add Expense
               </button>
               <div className={styles.currencySelectWrapper}>
                 <label htmlFor="currency-select" className={styles.currencyLabel}>Currency:</label>
@@ -95,7 +93,6 @@ export default function DashboardPage() {
                 </select>
               </div>
             </div>
-
             <ExpenseSummary expenses={convertedExpenses} />
             <div className={styles.widgets}>
               <BudgetManager expenses={convertedExpenses} />
@@ -110,9 +107,7 @@ export default function DashboardPage() {
                 <ImportControls onImport={handleImport} />
               </div>
             </div>
-
             <ExpenseGroup expenses={convertedExpenses} onEdit={openModal} onDelete={handleDelete} />
-
             {error && <p className={styles.error}>{error}</p>}
           </div>
           <div className={styles.chartContainer}>
@@ -134,7 +129,6 @@ export default function DashboardPage() {
           </div>
         </div>
       </Modal>
-      <Footer />
     </div>
   );
 }

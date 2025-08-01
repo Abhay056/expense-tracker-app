@@ -11,8 +11,8 @@ export default function ExportControls({ expenses, disabled }) {
   };
 
   return (
-    <button type="button" className="button-secondary" onClick={handleExport} disabled={disabled}>
-      Export to CSV
+    <button type="button" className={styles.btn} onClick={handleExport} disabled={disabled}>
+      Download CSV
     </button>
   );
 }
